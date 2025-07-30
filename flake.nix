@@ -64,6 +64,7 @@
         pkgs.fzf
         pkgs.ripgrep
         pkgs.devenv
+        pkgs.nodejs_24
       ];
 
       home.sessionVariables = {
