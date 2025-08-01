@@ -33,5 +33,6 @@
   imports = [
     ./modules/fish.nix
     ./modules/caddy.nix
+    ./modules/git.nix
   ];
 }
