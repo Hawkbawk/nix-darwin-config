@@ -15,6 +15,7 @@
     pkgs.ripgrep
     pkgs.devenv
     pkgs.nodejs_24
+    pkgs.lsof
   ];
 
   home.sessionVariables = {
@@ -32,7 +33,13 @@
   # Import modular configurations
   imports = [
     ./modules/fish.nix
-    ./modules/caddy.nix
+    # After a great deal of experimentation, I've decided that OrbStack and Docker
+    # is the best way to go when it comes to separation of dependencies. All of the projects
+    # I use already have it set up and devenv/process-compose just did not work well, especially
+    # the Postgres integration. It would complain about the user not being created, despite the fact
+    # I had explicitly told it to create said user. Perhaps on another day I shall revisit this, but for now,
+    # OrbStack just kinda works better.
+    # ./modules/caddy.nix
     ./modules/git.nix
   ];
 }
