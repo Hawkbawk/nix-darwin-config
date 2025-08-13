@@ -10,12 +10,12 @@
 
   home.packages = with pkgs; [
     pkgs.neovim
-    pkgs.zed-editor
     pkgs.fzf
     pkgs.ripgrep
     pkgs.devenv
     pkgs.nodejs_24
     pkgs.lsof
+    pkgs.code-cursor
   ];
 
   home.sessionVariables = {
@@ -41,5 +41,6 @@
     # OrbStack just kinda works better.
     # ./modules/caddy.nix
     ./modules/git.nix
+    ./modules/zed.nix
   ];
 }

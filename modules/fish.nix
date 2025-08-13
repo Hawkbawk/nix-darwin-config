@@ -33,6 +33,13 @@ in
             echo "❌ Rebuild cancelled."
         end
       '';
+      process-for-port = ''
+        if test (count $argv) -ne 1
+            echo "Usage process-for-port <port>"
+            return 1
+        end
+        lsof -i tcp:$argv[1] | grep LISTEN
+      '';
       free-port = ''
         if test (count $argv) -ne 1
           echo "Usage: free-port <port>"

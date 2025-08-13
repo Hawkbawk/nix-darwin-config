@@ -6,6 +6,8 @@
     pkgs.fish
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
@@ -13,6 +15,17 @@
   programs.fish.enable = true;
 
   security.pam.services.sudo_local.touchIdAuth = true;
+
+  homebrew = {
+      enable = true;
+      onActivation.cleanup = "uninstall";
+
+      taps = [];
+      brews = [];
+      # None of these casks are available in nixpkgs, likely because they're macOS
+      # specific
+      casks = ["orbstack" "devpod" "insomnia" "raycast" "warp" "handbrake" "sanesidebuttons"];
+  };
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
