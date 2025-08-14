@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, ... }: {
   # this is internal compatibility configuration for home-manager, don't
   # change this! It should match the first version of nixpkgs that was
   # installed on this system with home-manager.
@@ -9,13 +9,13 @@
   home.shell.enableFishIntegration = true;
 
   home.packages = with pkgs; [
-    pkgs.neovim
-    pkgs.fzf
-    pkgs.ripgrep
-    pkgs.devenv
-    pkgs.nodejs_24
-    pkgs.lsof
-    pkgs.code-cursor
+    defaultbrowser
+    neovim
+    fzf
+    ripgrep
+    devenv
+    nodejs_24
+    lsof
   ];
 
   home.sessionVariables = {
@@ -42,5 +42,6 @@
     # ./modules/caddy.nix
     ./modules/git.nix
     ./modules/zed.nix
+    ./modules/firefox.nix
   ];
 }

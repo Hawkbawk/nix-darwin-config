@@ -9,9 +9,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nix-homebrew, nur }:
   {
     darwinConfigurations."FCJ300HPV2" = nix-darwin.lib.darwinSystem {
       modules = [
@@ -27,6 +32,19 @@
           home-manager.useUserPackages = true;
           home-manager.verbose = true;
           home-manager.users."ryan.hawkins" = ./home.nix;
+          nixpkgs.overlays = [ nur.overlays.default ];
+        }
+
+        nix-homebrew.darwinModules.nix-homebrew
+        {
+          nix-homebrew = {
+            # Install Homebrew under the default prefix
+            enable = true;
+
+            # User owning the Homebrew prefix
+            user = "ryan.hawkins";
+
+          };
         }
       ];
     };

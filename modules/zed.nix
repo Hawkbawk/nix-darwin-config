@@ -2,7 +2,7 @@
   programs.zed-editor = {
     enable = true;
     extensions = ["nix" "ruby" "biome"];
-    extraPackages = [pkgs.ruby_3_4 pkgs.nixd];
+    extraPackages = [pkgs.ruby_3_4 pkgs.nixd pkgs.nil];
 
     userSettings = {
       theme = "Gruvbox Light Hard";
