@@ -37,7 +37,17 @@
       brews = [];
       # None of these casks are available in nixpkgs, likely because they're macOS
       # specific
-      casks = ["orbstack" "devpod" "insomnia" "raycast" "warp" "sanesidebuttons" "alt-tab" "dash"];
+      casks = [
+        "orbstack"
+        # Only really needed if I'm using Zed, which I don't use right now.
+        # "devpod"
+        "insomnia"
+        "raycast"
+        "warp"
+        "sanesidebuttons"
+        "alt-tab"
+        "dash"
+      ];
   };
 
   # Used for backwards compatibility, please read the changelog before changing.

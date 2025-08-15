@@ -41,7 +41,10 @@
     # OrbStack just kinda works better.
     # ./modules/caddy.nix
     ./modules/git.nix
-    ./modules/zed.nix
+    # I keep going back and forth on Zed. It's very slick, but the debugger just doesn't seem to work, especially
+    # over SSH/remote connections. It's going to stick around for now, but just won't be enabled by default.
+    # ./modules/zed.nix
+    ./modules/vscode.nix
     ./modules/firefox.nix
   ];
 }

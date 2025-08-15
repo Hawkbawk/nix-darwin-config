@@ -138,8 +138,12 @@
                 url = "https://nixos.org/";
               }
               {
+                name = "Nix Darwin";
+                url = "https://nix-darwin.github.io/nix-darwin/manual/";
+              }
+              {
                 name = "Home Manager";
-                url = "https://github.com/nix-community/home-manager";
+                url = "https://home-manager.dev/manual/23.11/options.xhtml";
               }
               {
                 name = "Nix Packages";

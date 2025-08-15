@@ -10,13 +10,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nix-homebrew, nur }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nix-homebrew, nur, nix-vscode-extensions }:
   {
     darwinConfigurations."FCJ300HPV2" = nix-darwin.lib.darwinSystem {
       modules = [
@@ -32,7 +33,7 @@
           home-manager.useUserPackages = true;
           home-manager.verbose = true;
           home-manager.users."ryan.hawkins" = ./home.nix;
-          nixpkgs.overlays = [ nur.overlays.default ];
+          nixpkgs.overlays = [ nur.overlays.default nix-vscode-extensions.overlay ];
         }
 
         nix-homebrew.darwinModules.nix-homebrew
