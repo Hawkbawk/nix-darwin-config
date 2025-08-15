@@ -1,8 +1,8 @@
-{ pkgs, lib, ... }: {
+{ pkgs, ... }: {
   programs.zed-editor = {
     enable = true;
     extensions = ["nix" "ruby" "biome"];
-    extraPackages = [pkgs.ruby_3_4 pkgs.nixd pkgs.nil];
+    extraPackages = [pkgs.ruby_3_4 pkgs.nixd pkgs.nil pkgs.nodejs_24];
 
     userSettings = {
       theme = "Gruvbox Light Hard";
