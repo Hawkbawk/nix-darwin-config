@@ -143,7 +143,7 @@
               }
               {
                 name = "Home Manager";
-                url = "https://home-manager.dev/manual/23.11/options.xhtml";
+                url = "https://home-manager.dev/manual/unstable/options.xhtml";
               }
               {
                 name = "Nix Packages";

@@ -33,7 +33,10 @@
           home-manager.useUserPackages = true;
           home-manager.verbose = true;
           home-manager.users."ryan.hawkins" = ./home.nix;
-          nixpkgs.overlays = [ nur.overlays.default nix-vscode-extensions.overlay ];
+          nixpkgs.overlays = [
+            nur.overlays.default
+            nix-vscode-extensions.overlays.default
+          ];
         }
 
         nix-homebrew.darwinModules.nix-homebrew

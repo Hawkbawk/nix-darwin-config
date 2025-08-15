@@ -1,10 +1,19 @@
-{ pkgs, lib, ... }:
+{ ... }:
 let
   CONFIG_FILE_PATH = "~/.config/nix";
 in
 {
   programs.fish = {
     enable = true;
+    interactiveShellInit = ''
+      set -gx EDITOR nvim
+      set -gx VISUAL nvim
+
+    '';
+    loginShellInit = ''
+      set -gx EDITOR nvim
+      set -gx VISUAL nvim
+    '';
     shellAliases = {
       open-nix-config = "$EDITOR ${CONFIG_FILE_PATH}/flake.nix";
       g = "git";
