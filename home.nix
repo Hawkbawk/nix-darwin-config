@@ -14,8 +14,9 @@
     fzf
     ripgrep
     devenv
-    nodejs_24
     lsof
+    nixfmt
+    nixd
   ];
 
   home.sessionVariables = {
@@ -27,6 +28,18 @@
   };
 
   programs.zoxide = {
+    enable = true;
+  };
+
+  programs.granted = {
+    enable = true;
+  };
+
+  programs.nnn = {
+    enable = true;
+  };
+
+  programs.eza = {
     enable = true;
   };
 

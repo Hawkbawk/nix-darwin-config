@@ -1,35 +1,37 @@
 { pkgs, config, ... }: {
   programs.vscode = {
     enable = true;
-
-
-
     profiles.default = {
       enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
 
       extensions = with pkgs.vscode-marketplace; [
         # Language Support
-        pkgs.vscode-marketplace.shopify.ruby-lsp
+        shopify.ruby-lsp
         tamasfe.even-better-toml
         redhat.vscode-yaml
         redhat.vscode-xml
         yzhang.markdown-all-in-one
         graphql.vscode-graphql-syntax
         graphql.vscode-graphql
+        jnoortheen.nix-ide
 
         # Themes
         jdinhlife.gruvbox
 
         # AI & Productivity
-        github.copilot
-        github.copilot-chat
+        # These must use the vscode-marketplace-release
+        # version, otherwise we end up using a pre-release version
+        # and get warnings about VSCode and extension version incompatibility
+        # issues.
+        pkgs.vscode-marketplace-release.github.copilot
+        pkgs.vscode-marketplace-release.github.copilot-chat
 
         # Development Tools
         eamodio.gitlens
         dbaeumer.vscode-eslint
         biomejs.biome
-        pkgs.vscode-marketplace.orta.vscode-jest
+        orta.vscode-jest
         steoates.autoimport
         mtxr.sqltools
         mtxr.sqltools-driver-pg
@@ -53,9 +55,6 @@
         mtxr.sqltools
         rangav.vscode-thunder-client
       ];
-
-
-
 
       userSettings = {
         "[git-commit]" = {
@@ -90,6 +89,8 @@
         "[graphql]" = {
           "editor.defaultFormatter" = "biomejs.biome";
         };
+        "nix.enableLanguageServer" = true;
+        "nix.serverPath" = "nixd";
         "debug.javascript.autoAttachFilter" = "disabled";
         "diffEditor.ignoreTrimWhitespace" = false;
         "editor.accessibilitySupport" = "off";

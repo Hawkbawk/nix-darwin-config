@@ -27,6 +27,10 @@
     fi
   '';
 
+  system.activationScripts.setGrantedBrowser.text = ''
+    granted browser set -b firefox -p ${pkgs.firefox}
+  '';
+
 
 
   homebrew = {
@@ -47,7 +51,13 @@
         "sanesidebuttons"
         "alt-tab"
         "dash"
+        "slack"
+        "spotify"
       ];
+
+      masApps = {
+        "Magnet" = 441258766;
+      };
   };
 
   # Used for backwards compatibility, please read the changelog before changing.

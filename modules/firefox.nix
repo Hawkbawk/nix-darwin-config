@@ -123,6 +123,7 @@
         react-devtools
         bitwarden
         okta-browser-plugin
+        granted
       ];
 
       # Bookmarks
